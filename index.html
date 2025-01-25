@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preet Sharma - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+        }
+
+        header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 1rem;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 2px solid #ddd;
+            padding: 0.8rem 0;
+            text-align: center;
+            z-index: 1000;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: #6a11cb;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #2575fc;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #6a11cb;
+            text-align: center;
+        }
+
+        .card {
+            background: linear-gradient(90deg, #fdfbfb, #ebedee);
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .dark-mode nav {
+            background-color: #1e1e1e;
+            border-bottom-color: #444;
+        }
+
+        .dark-mode header {
+            background: linear-gradient(90deg, #0056b3, #004080);
+        }
+
+        .dark-mode a {
+            color: #78c7f8;
+        }
+
+        .dark-mode a:hover {
+            color: #4fa1d9;
+        }
+
+        .dark-mode .card {
+            background: #1e1e1e;
+            border-color: #333;
+            color: #e0e0e0;
+        }
+
+        .dark-mode .card:hover {
+            box-shadow: 0 8px 12px rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-buttons a {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff758c, #ff7eb3);
+            border-radius: 0.3rem;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-buttons a:hover {
+            background: linear-gradient(90deg, #ff5470, #ff658b);
+        }
+
+        resume {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        resume h2 {
+            font-size: 1.8rem;
+            color: #6a11cb;
+            margin-bottom: 1rem;
+        }
+
+        .resume-button a {
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            padding: 0.8rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resume-button a:hover {
+            background: linear-gradient(90deg, #4f009e, #1b54d3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .dark-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dark-toggle:hover {
+            background: linear-gradient(90deg, #4f009e, #1b54d3);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            border-radius: 0.3rem;
+            font-size: 1rem;
+            text-decoration: none;
+            display: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background: linear-gradient(90deg, #4f009e, #1b54d3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            header img {
+                width: 100px;
+                height: 100px;
+            }
+
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .card {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-buttons a {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="dark-toggle">Toggle Dark Mode</button>
+    <a href="#top" class="back-to-top">Top</a>
+
+    <header id="top">
+        <img src="NN-4042 copy.jpg" alt="Preet Sharma">
+        <h1>Preet Sharma</h1>
+        <p>Dynamic Data Engineer with expertise in ETL, AWS, and Python</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <!-- About Section -->
+        <section id="about" data-aos="fade-up">
+            <h2>About Me</h2>
+            <p>
+                Dynamic ETL Engineer and Data Engineer with over 2 years of experience leading a team at Tata Consultancy Services.
+                Expertise in optimizing data pipelines and automating ETL processes, achieving a 90-95% reduction in execution time.
+                Proficient in DDL/DML SQL queries, cloud migration to AWS, and building reports with high impact for production environments.
+                Known for strong client relations, effective communication, and innovative problem-solving.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" data-aos="fade-up">
+            <h2>Skills</h2>
+            <div class="card">ETL Tools: Pentaho</div>
+            <div class="card">Databases: Oracle, MySQL, PostgreSQL</div>
+            <div class="card">Programming Languages: Java, Python (NumPy, pandas)</div>
+            <div class="card">Visualization Tools: Tableau, Power BI</div>
+            <div class="card">Development Tools: Spring Boot, Maven, SourceTree, Rest API, SOAP API</div>
+            <div class="card">Cloud Platforms: AWS, GCP</div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" data-aos="fade-up">
+            <h2>Experience</h2>
+            <div class="card">
+                <h3>Technical Lead – ETL Engineer & Data Engineer</h3>
+                <p>Tata Consultancy Services | Jan 2022 - Jun 2024</p>
+                <ul>
+                    <li>Led a team to optimize data pipelines, reducing 3/4th of execution time through automation and process improvements.</li>
+                    <li>Delivered over 25 high-quality ETL reports in the last year, providing actionable insights that improved decision-making for client.</li>
+                    <li>Successfully migrated project infrastructure from VM to AWS Cloud, improving system scalability and reducing operational costs.</li>
+                    <li>Automated several manual workflows using stored procedures and SQL views, improving operational efficiency by 80%.</li>
+                    <li>Collaborated with clients to understand business requirements and delivered customized data solutions, enhancing client satisfaction and retention.</li>
+                    <li>Improved data quality and processing speed by optimizing existing data pipelines, reducing errors by 50%.</li>
+                    <li>Automated data filtering and calculations using Python scripts, enhancing local data processing efficiency.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Entry-Level Software Developer</h3>
+                <p>Tata Consultancy Services | Jul 2024 - Present</p>
+                <ul>
+                    <li>Developed microservices using Spring Boot.</li>
+                    <li>Enhanced service performance through collaborative solutions.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" data-aos="fade-up">
+            <h2>Achievements</h2>
+            <ul>
+                <li>Received Applause Award at TCS for outstanding contributions.</li>
+                <li>Recognized as a Contextual Master in TCS for inspiring leadership.</li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" data-aos="fade-up">
+            <h2>Contact Me</h2>
+            <div class="contact-buttons">
+                <a href="tel:+917014429385">Mobile No.</a>
+                <a href="mailto:er.preetsharma97@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/preet-sharma-717478163" target="_blank">LinkedIn</a>
+            </div>
+        </section>
+
+        <section id="resume" data-aos="fade-up">
+            <h2>Download My Resume</h2>
+            <div class="resume-button">
+                <a href="resume.pdf" download>Download Resume</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Preet Sharma. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+
+        const toggleButton = document.querySelector('.dark-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
